@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="view_partner_form_access_record_form_inherit_id" model="ir.ui.view">
+        <field name="name">access_record.tree.inherit_id</field>
+        <field name="model">access.record</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//notebook//page[@autofocus='autofocus']" position="after">
+                <page name='visit' string="拜访记录">
+                    <field name="access_type"/>
+               </page>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>

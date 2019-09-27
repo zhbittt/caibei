@@ -1,0 +1,268 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <!-- 隐藏 crm.销售.客户 search部分过滤条件-->
+    <record id="res_partner_view_search_inherit_crm_sale_extend" model="ir.ui.view">
+        <field name="name">res.partner.view.search.inherit.crm_sale_extend</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="mail.res_partner_view_search_inherit_mail" />
+        <field name="arch" type="xml">
+
+
+            <xpath expr="//filter[@name='filter_my_partners']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+
+            <xpath expr="//filter[@name='filter_my_partners']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+
+            <xpath expr="//filter[@name='type_person']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+
+            <xpath expr="//filter[@name='customer']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+
+            <xpath expr="//filter[@name='supplier']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//filter[@name='activities_overdue']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//filter[@name='activities_today']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//filter[@name='activities_upcoming_all']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//filter[@name='activities_my']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+
+
+            <filter name="inactive" position="after">
+                <separator />
+                <filter string="生产制造类" name="industry"
+                                domain="[('industry', '=', 'production')]"/>
+                <filter string="交通运输类" name="industry"
+                                domain="[('industry', '=', 'transportation')]"/>
+                <filter string="石油化工类" name="industry"
+                                domain="[('industry', '=', 'petrochemical')]"/>
+                <filter string="金融证券" name="industry"
+                                domain="[('industry', '=', 'financial')]"/>
+                <filter string="服务业" name="industry"
+                                domain="[('industry', '=', 'service')]"/>
+                <filter string="其他" name="industry"
+                                domain="[('industry', '=', 'other')]"/>
+            </filter>
+
+
+        </field>
+    </record>
+
+    <!-- 隐藏sms对crm.销售.客户 phone、mobile字段的扩展视图 -->
+    <record id="view_partner_form_send_sms_form_crm_sale_customer_inherited" model="ir.ui.view">
+        <field name="name">view.partner.form.send.sms.form.crm_sale_customer.inherited</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="sms.partner_form_send_sms_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//label[@for='phone']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//label[@for='mobile']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='phone']//.." position="attributes" >
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='mobile']//.." position="attributes" >
+                <attribute name="invisible">True</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- 隐藏mail 对crm.销售.客户 email字段的扩展视图 -->
+    <record id="view_partner_form_mail_form_crm_sale_customer_inherited" model="ir.ui.view">
+        <field name="name">view.partner.form.mail.form.crm_sale_customer.inherited</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="mail.res_partner_view_form_inherit_mail" />
+        <field name="arch" type="xml">
+            <xpath expr="//label[@for='email']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='email']//.." position="attributes" >
+                <attribute name="invisible">True</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- 隐藏crm 对crm.销售.客户.form表单 商机、会议button功能的扩展视图 -->
+    <record id="view_partners_form_crm1_form_crm_sale_customer_inherited" model="ir.ui.view">
+        <field name="name">view.partner.form.crm1.form.crm_sale_customer.inherited</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="crm.view_partners_form_crm1" />
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='opportunity_count']//.." position="attributes" >
+                <attribute name="invisible">True</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='meeting_count']//.." position="attributes" >
+                <attribute name="invisible">True</attribute>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="view_partner_form_crm_sale_customer_inherited" model="ir.ui.view">
+        <field name="name">view.partner.form.crm_sale_customer.inherited</field>
+        <field name="model">res.partner</field>
+        <field name="priority">9</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+
+            <!-- hide  -->
+            <xpath expr="//field[@name='vat']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='function']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='email']" position="replace">
+                <field name="email" widget="email" context="{'gravatar_image': True}" invisible="1"/>
+            </xpath>
+
+            <xpath expr="//field[@name='website']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='lang']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+             <xpath expr="//field[@name='title']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+
+            <!-- add -->
+
+            <xpath expr="//field[@name='type']" position="before">
+                <field name="reference" />
+            </xpath>
+
+            <xpath expr="//field[@name='category_id']" position="before">
+                <field name="scale" />
+            </xpath>
+
+            <xpath expr="//field[@name='scale']" position="before">
+                <field name="industry" domain="[('industry', '!=', 'production')]"/>
+            </xpath>
+
+            <xpath expr="//field[@name='category_id']" position="after">
+                <field name="information" />
+            </xpath>
+
+            <!-- replace-->
+
+
+            <xpath expr="//field[@name='is_company']" position="replace">
+                <field name="is_company" context="{'default_is_company': True}" invisible="1"/>
+            </xpath>
+
+            <xpath expr="//field[@name='company_type']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+
+
+
+            <!-- notebook edit -->
+            <xpath expr="//page[@name='internal_notes']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+
+            <xpath expr="//page[@name='sales_purchases']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+
+            <xpath expr="//notebook//page[@autofocus='autofocus']" position="replace">
+                 <page string="联系人 &amp; 地址" name="contacts_addresses" autofocus="autofocus">
+                    <field name="child_ids" mode="kanban"  context="{'default_parent_id': active_id, 'default_city': city,'default_user_id': user_id}">
+                        <kanban default_order="id desc">
+                            <field name="id"/>
+                            <field name="color"/>
+                            <field name="name"/>
+                            <field name="title"/>
+                            <field name="tz_offset"/>
+                            <field name="type"/>
+                            <field name="email"/>
+                            <field name="parent_id"/>
+                            <field name="is_company"/>
+                            <field name="function"/>
+                            <field name="phone"/>
+                            <field name="mobile"/>
+                            <field name="image_small"/>
+                            <templates>
+                                <t t-name="kanban-box">
+                                    <t t-set="color" t-value="kanban_color(record.color.raw_value)"/>
+                                    <div t-att-class="color + (record.title.raw_value == 1 ? ' oe_kanban_color_alert' : '') + ' oe_kanban_global_click'">
+                                        <div class="o_kanban_image">
+                                            <img alt="" t-if="record.image_small.raw_value" t-att-src="kanban_image('res.partner', 'image_small', record.id.raw_value)"/>
+                                            <t t-if="!record.image_small.raw_value">
+                                                <img alt="Delivery" t-if="record.type.raw_value === 'delivery'" t-att-src='_s + "/base/static/img/truck.png"'/>
+                                                <img alt="Invoice" t-if="record.type.raw_value === 'invoice'" t-att-src='_s + "/base/static/img/money.png"'/>
+                                                <t t-if="record.type.raw_value !== 'invoice' &amp;&amp; record.type.raw_value !== 'delivery'">
+                                                    <img alt="Logo" t-if="record.is_company.raw_value === true" t-att-src='_s + "/base/static/img/company_image.png"'/>
+                                                    <img alt="Avatar" t-if="record.is_company.raw_value === false" t-att-src='_s + "/base/static/img/avatar.png"'/>
+                                                </t>
+                                            </t>
+                                        </div>
+                                        <div class="oe_kanban_details">
+                                            <field name="name"/>
+                                            <div t-if="record.function.raw_value"><field name="function"/></div>
+                                            <div t-if="record.email.raw_value"><field name="email" widget="email"/></div>
+                                            <div t-if="record.phone.raw_value">手机号码: <field name="phone"/></div>
+                                            <div t-if="record.mobile.raw_value">固定电话: <field name="mobile"/></div>
+                                        </div>
+                                    </div>
+                                </t>
+                            </templates>
+                        </kanban>
+                        <form string="Contact / Address">
+                            <sheet>
+                                <!-- parent_id and type fields needed in attrs in base_address_city module which overwrites
+                                _fields_view_get() of partner. It would be better to put those fields there but the web client
+                                dosen't support when a field is displayed several times in the same view.-->
+                                <field name="type" invisible="1"/>
+                                <field name="parent_id" invisible="1"/>
+                                <group>
+                                    <group>
+                                        <field name="name" string="姓名" placeholder="请输入姓名" />
+                                        <label for="phone" string="手机号码" />
+                                        <div class="o_row">
+                                            <field name="area_code" class="col-4"/>
+                                            <field name="phone" widget="phone" placeholder="请输入手机号码"/>
+                                        </div>
+                                        <field name="mobile" string="固定电话" widget="phone" placeholder="示例：0755-88888888" />
+                                        <field name="wechat" string="微信号" placeholder="请输入微信号" />
+                                        <field name="qq" string="QQ号" placeholder="请输入QQ号" />
+                                        <field name="email" string="邮箱" placeholder="请输入邮箱" />
+                                        <field name="function" string="职位" placeholder="请输入职位" />
+                                        <field name="department" string="所属部门" placeholder="请选择所属部门" />
+                                        <field name="higher_level_unit" string="上级单位" placeholder="请输入上级单位" />
+                                    </group>
+                                </group>
+                            </sheet>
+                        </form>
+                    </field>
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+
+
+
+</odoo>
