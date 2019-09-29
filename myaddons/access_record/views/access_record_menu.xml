@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<odoo>
+    <!-- Access Record App Menu -->
+    <menuitem id="menu_record" name="Record" />
+
+    <!-- Action to open the Access Record list -->
+    <act_window id="action_access_record"
+        name="Access Record"
+        res_model="res.record"
+        view_mode="tree,form" />
+
+    <!-- Menu item to open the Access Record list -->
+    <menuitem id="menu_access_record"
+        name="Access Record"
+        parent="menu_record"
+        action="action_access_record" />
+
+    <act_window id="action_res_access_record"
+        name="Res Partner Access Record"
+        res_model="res.partner.record"
+        view_mode="tree,form" />
+
+    <menuitem id="menu_res_partner_record"
+        name="Res Partner Access Record"
+        parent="menu_record"
+        action="action_res_access_record" />
+</odoo>

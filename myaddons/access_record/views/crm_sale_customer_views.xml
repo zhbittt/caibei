@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="view_partner_form_res_partner_record_inherit_id" model="ir.ui.view">
+        <field name="name">view.partner.res.partner.record.inherit_id</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <page name="sales_purchases" position="after">
+                <page name="access_record" string="拜访记录" >
+                    <field name="record_ids" context="{'default_parent_id': active_id, 'default_city': city,'default_user_id': user_id}">
+                        <tree>
+                            <field name="access_type" />
+                            <field name="access_time" />
+                            <field name="access_feedback" />
+                            <field name="access_recommend" />
+                            <field name="access_user_name" />
+                        </tree>
+                        <form strint="拜访记录" >
+                            <group>
+                                <field name="access_type" widget="radio" options="{'horizontal': true}" />
+                                <field name="access_time" />
+                                <field name="access_feedback" />
+                                <field name="access_recommend" />
+                                <field name="partner_id" invisible="1"/>
+                                <field name="access_user"
+                                       options="{'no_create_edit':1}" />
+                            </group>
+                        </form>
+                    </field>
+                </page>
+            </page>
+
+        </field>
+    </record>
+
+</odoo>

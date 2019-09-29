@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="view_access_record_form" model="ir.ui.view">
+        <field name="name">access.record.form</field>
+        <field name="model">res.record</field>
+        <field name="arch" type="xml">
+            <form string="Access Record">
+                <group>
+                    <field name="access_type" widget="radio" options="{'horizontal': true}" />
+                    <field name="partner_id" />
+                    <field name="access_time" />
+                    <field name="access_feedback" />
+                    <field name="access_recommend" />
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_access_record_tree" model="ir.ui.view">
+        <field name="name">access.record.tree</field>
+        <field name="model">res.record</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="access_type" />
+                <field name="access_time" />
+                <field name="partner_id" />
+                <field name="access_feedback" />
+                <field name="access_recommend" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_res_partner_record_form" model="ir.ui.view">
+        <field name="name">res.partner.record.form</field>
+        <field name="model">res.partner.record</field>
+        <field name="arch" type="xml">
+            <form string="Access Record">
+                <group>
+                    <field name="record_id" />
+                    <field name="record_type" widget="radio" options="{'horizontal': true}" />
+                    <field name="record_partner_id" />
+                    <field name="record_time" />
+                    <field name="record_feedback" />
+                    <field name="record_recommend" />
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_res_partner_record_tree" model="ir.ui.view">
+        <field name="name">res.partner.record.tree</field>
+        <field name="model">res.partner.record</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="record_type" />
+                <field name="record_time" />
+                <field name="record_partner_id" />
+                <field name="record_feedback" />
+                <field name="record_recommend" />
+            </tree>
+        </field>
+    </record>
+
+<!--    <record id="action_res_partner_record_form" model="ir.actions.act_window">-->
+<!--        <field name="name">Access Record</field>-->
+<!--        <field name="res_model">res.partner.record</field>-->
+<!--        <field name="view_type">form</field>-->
+<!--        <field name="view_mode">tree,form</field>-->
+<!--    </record>-->
+
+
+
+<!--    <record id="view_partner_form_visit_tree_inherit_id" model="ir.ui.view">-->
+<!--        <field name="name">crm_sale_customer.visit.tree.inherit_id</field>-->
+<!--        <field name="model">crm_sale_customer.visit</field>-->
+<!--        <field name="inherit_id" ref="base.view_partner_form" />-->
+<!--        <field name="arch" type="xml">-->
+<!--            <xpath expr="//notebook//page[@autofocus='autofocus']" position="after">-->
+<!--                <page name='visit' string="拜访记录">-->
+<!--                    <field name="visit_type"/>-->
+<!--               </page>-->
+<!--            </xpath>-->
+
+<!--        </field>-->
+<!--    </record>-->
+
+</odoo>
