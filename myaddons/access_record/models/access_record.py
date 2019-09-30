@@ -6,7 +6,6 @@ class Record(models.Model):
     _name = 'res.record'
     _description = '客户拜访记录'
 
-
     access_type = fields.Selection([
         ('interview', '面访'),
         ('telephone_interview', '电话访谈'),
@@ -30,21 +29,3 @@ class Record(models.Model):
 
     access_user = fields.Many2one('res.partner', domain="[('parent_id', '=', partner_id)]", string='拜访对象')
     access_user_name = fields.Char(related='access_user.name', string='拜访对象姓名')
-
-
-
-
-
-class ResPartnerRecord(models.Model):
-
-    _name = 'res.partner.record'
-    _description = '拜访记录'
-
-    record_id = fields.Many2one('res.record', string='Record')
-    record_type = fields.Selection(related='record_id.access_type')
-    record_time = fields.Datetime(related='record_id.access_time')
-    record_feedback = fields.Text(related='record_id.access_feedback')
-    record_recommend = fields.Text(related='record_id.access_recommend')
-    record_partner_id = fields.Many2one(related='record_id.partner_id')
-
-    partner_id = fields.Many2one('res.partner')

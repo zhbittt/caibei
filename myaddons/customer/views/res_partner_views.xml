@@ -242,7 +242,7 @@
                                         <field name="name" string="姓名" placeholder="请输入姓名" required="1" />
                                         <label for="phone" string="手机号码" />
                                         <div class="o_row">
-                                            <field name="area_code" class="col-4"/>
+                                            <field name="area_code" class="col-6"/>
                                             <field name="phone" widget="phone" placeholder="请输入手机号码"/>
                                         </div>
                                         <field name="mobile" string="固定电话" widget="phone" placeholder="示例：0755-88888888" />
@@ -259,34 +259,6 @@
                     </field>
                 </page>
             </xpath>
-
-<!--            <page name="sales_purchases" position="after">-->
-<!--                <page name="a" string="拜访记录">-->
-<!--                    <span>23</span>-->
-<!--                    <field name="record_ids">-->
-<!--                            <field name="aa" />-->
-<!--                        <tree>-->
-
-<!--                            <field name="access_type" widget="radio" />-->
-<!--                            <field name="access_time" />-->
-<!--                            <field name="partner_id" />-->
-<!--                            <field name="company_id" />-->
-<!--                            <field name="industry_id" />-->
-<!--                            <field name="access_feedback" />-->
-<!--                            <field name="access_recommend" />-->
-<!--                        </tree>-->
-<!--                        <form>-->
-<!--                            <group>-->
-<!--                                <field name="access_type" widget="radio" options="{'horizontal': true}" />-->
-<!--                                <field name="access_time" />-->
-<!--                                <field name="partner_id" />-->
-<!--                                <field name="access_feedback" />-->
-<!--                                <field name="access_recommend" />-->
-<!--                            </group>-->
-<!--                        </form>-->
-<!--                    </field>-->
-<!--                </page>-->
-<!--            </page>-->
 
         </field>
     </record>

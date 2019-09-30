@@ -15,13 +15,4 @@
         parent="menu_record"
         action="action_access_record" />
 
-    <act_window id="action_res_access_record"
-        name="Res Partner Access Record"
-        res_model="res.partner.record"
-        view_mode="tree,form" />
-
-    <menuitem id="menu_res_partner_record"
-        name="Res Partner Access Record"
-        parent="menu_record"
-        action="action_res_access_record" />
 </odoo>
