@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="view_partner_form_attachment_inherit_id" model="ir.ui.view">
+        <field name="name">view.partner.attachment.inherit_id</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <page name="access_record" position="after">
+                <page name="attachment" string="附件管理" >
+                   <field name="attachment_ids">
+                       <tree string="附件管理">
+                            <field name="name"/>
+                            <field name="datas_fname"/>
+                            <field name="type"/>
+                            <field name="create_uid"/>
+                            <field name="create_date"/>
+                        </tree>
+                       <form string="附件管理">
+                            <sheet>
+                                <label for="name" class="oe_edit_only"/>
+                                <h1>
+                                    <field name="name"/>
+                                </h1>
+                                <group>
+                                    <group>
+                                        <field name="type"/>
+                                        <field name="datas" filename="datas_fname" attrs="{'invisible':[('type','=','url')]}"/>
+                                        <field name="datas_fname" invisible="1" attrs="{'invisible':[('type','=','url')]}" class="oe_inline oe_right"/>
+                                        <field name="url" widget="url" attrs="{'invisible':[('type','=','binary')]}"/>
+                                    </group>
+                                    <group name="History" string="历史记录" colspan="4">
+                                        <label for="create_uid" string="创建"/>
+                                        <div name="creation_div">
+                                            <field name="create_uid" readonly="1" class="oe_inline"/> on
+                                            <field name="create_date" readonly="1" class="oe_inline"/>
+                                        </div>
+                                    </group>
+                                    <group name="description_group" string="说明"  colspan="4">
+                                        <field name="description" nolabel="1"/>
+                                    </group>
+                                </group>
+                          </sheet>
+                        </form>
+                   </field>
+                </page>
+            </page>
+
+        </field>
+    </record>
+
+</odoo>
