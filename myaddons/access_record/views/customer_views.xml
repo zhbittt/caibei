@@ -19,12 +19,11 @@
                         <form strint="拜访记录" >
                             <group>
                                 <field name="access_type" widget="radio" options="{'horizontal': true}" />
+                                <field name="access_user" options="{'no_create_edit':1}" />
                                 <field name="access_time" />
                                 <field name="access_feedback" />
                                 <field name="access_recommend" />
                                 <field name="partner_id" invisible="1"/>
-                                <field name="access_user"
-                                       options="{'no_create_edit':1}" />
                             </group>
                         </form>
                     </field>
